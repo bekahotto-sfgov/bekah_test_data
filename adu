@@ -155,51 +155,6 @@
       annotation: G-23 Attachment B and Form 3/8 (DBI)
       hidden: yes
 
-- title: Billing contact information
-  fields:
-  - group: owner
-    fields:
-    - label: Who should we contact to pay application fees?
-      type: radio
-      annotation: PRJ (Planning) 
-      options:
-      - label: Myself
-
-      - label: Someone else
-        shows: billing-contact
-
-  - group: non-owner
-    fields:
-    - label: Who should we contact to pay application fees?
-      type: radio
-      annotation: PRJ (Planning) 
-      options:
-      - label: The owner
-
-      - label: The application contact
-
-      - label: Someone else
-        shows: billing-contact
-
-
-- title: Billing contact information
-  group: billing-contact
-  fields:
-  - label: First name of billing contact
-    annotation: PRJ (Planning) 
-
-  - label: Last name of billing contact
-    annotation: PRJ (Planning) 
-
-  - label: Phone number
-    type: phone
-    annotation: PRJ (Planning) 
-
-  - label: Email
-    type: email
-    annotation: PRJ (Planning) 
-
-
 - title: "The property: Use codes"
   fields:
   - label: What are the building's current use codes?
@@ -1363,7 +1318,7 @@
     type: number
     annotation: Everything on this page is from the PRJ (Planning)
 
-  - label: Will this change after you build the ADU(s)?
+  - label: Will the number of buildings change after construction?
     type: radio
     options:
     - label: "Yes"
@@ -1373,7 +1328,7 @@
 
   - group: proposed-buildings
     fields:
-    - label: How many buildings will there be?
+    - label: How many buildings will there be after construction?
       type: number
 
 - title: "Construction: Building stories"
@@ -1383,7 +1338,7 @@
     maxlength: 15 
     annotation: Form 3/8 (DBI), PRJ and Joint Checklist (Planning)
 
-  - label: Will this change after you build the ADU(s)?
+  - label: Will the number of stories change after construction?
     type: radio
     annotation: If "no", populate "proposed stories" with the answer to "existing stories"
     options:
@@ -1394,11 +1349,104 @@
 
   - group: proposed-stories
     fields:
-    - label: How many stories will there be?
+    - label: How many stories will there be after construction?
       type: number
       maxlength: 15 
       annotation: PRJ (Planning)
 
+- title: "Construction: Building height"
+  fields:
+  - label: Are you adding height to the existing building?
+    annotation: Form 3/8 (DBI)
+    type: radio
+    options:
+    - label: "Yes"
+      shows: new-height
+
+    - label: "No"
+
+  - group: new-height
+    fields:
+    - label: What will be the new height at the center line of the front of the building?
+      type: number
+      unit: feet
+      annotation: PRJ (Planning), Form 3/8 (DBI)
+      shows: shadow-analysis
+      if: ">40"
+
+- title: "Construction: Expanding the building"
+  fields:
+  - label: Do you plan to add a deck or horizontal extension?
+    annotation: Form 3/8 (DBI)
+    
+    type: radio
+    options:
+    - label: "Yes"
+      shows: new-ground-floor
+
+    - label: "No"
+
+  - group: new-ground-floor
+    fields:
+    - label: What will the ground floor area be after construction?
+      type: number
+      maxlength: 4
+      unit: square feet
+      annotation: Form 3/8 (DBI)
+
+  - label: Is the site in a Maher area?
+    hidden: yes
+    type: radio
+    annotation: PRJ (Planning)
+    options:
+    - label: "Yes"
+      shows: industrial-to-residential
+
+    - label: "No"
+
+- title: "Construction: Market-rate dwelling units"
+  fields:
+  - label: How many market-rate dwelling units does the property have?
+    type: number
+    unit: units
+    annotation: Form 3/8 (DBI). "Number of current market-rate units" (needed by Planning) is this field minus "How many of those units are affordable?"
+
+  - label: Will the number of market-rate dwelling units change after construction?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-market-rate-dwellings
+
+    - label: "No"
+
+  - group: proposed-market-rate-dwellings
+    fields:
+    - label: How many market-rate dwelling units will there be?
+      type: number
+      unit: units
+      annotation: PRJ (Planning)
+
+- title: "Construction: Affrodable dwelling units"
+  fields:
+  - label: How many affordable dwelling units does the property have?
+    type: number
+    unit: units
+    annotation: Form 3/8 (DBI). "Number of proposed market-rate units" (needed by Planning) is this field minus "How many of those units are affordable?"
+
+  - label: Will the number of affordable dwelling units change after construction?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-affordable-dwellings
+
+    - label: "No"
+
+  - group: proposed-affordable-dwellings
+    fields:
+    - label: How many affordable dwelling units will there be?
+      type: number
+      unit: units
+      annotation: PRJ (Planning)
 
 - title: "Construction: Residential area"
   fields:
@@ -1407,7 +1455,7 @@
     unit: gross square feet
     annotation: Everything on this page is from the PRJ (Planning)
 
-  - label: Will this change after you build the ADU(s)?
+  - label: Will the residential square footage change after construction?
     type: radio
     options:
     - label: "Yes"
@@ -1417,33 +1465,9 @@
 
   - group: proposed-residential-gsf
     fields:
-    - label: How much residential space will there be?
+    - label: How much residential space will there be after construction?
       type: number
       unit: gross square feet
-
-- title: Current units
-  fields:
-  - label: How many units does the property have?
-    type: number
-    unit: units
-    annotation: Form 3/8 (DBI). "Number of current market-rate units" (needed by Planning) is this field minus "How many of those units are affordable?"
-
-  - label: How many of those units are affordable?
-    type: number
-    unit: units
-    annotation: PRJ (Planning)
-
-- title: Proposed units
-  fields:
-  - label: How many units will the property have?
-    type: number
-    unit: units
-    annotation: Form 3/8 (DBI). "Number of proposed market-rate units" (needed by Planning) is this field minus "How many of those units are affordable?"
-
-  - label: How many of those units will be affordable?
-    type: number
-    unit: units
-    annotation: PRJ (Planning)
 
 - title: "Construction: Commercial area"
   fields:
@@ -1452,7 +1476,7 @@
     unit: gross square feet
     annotation: Everything on this page is from the PRJ (Planning)
 
-  - label: Will this change after you build the ADU(s)?
+  - label: Will the commercial square footage change after construction?
     type: radio
     options:
     - label: "Yes"
@@ -1462,16 +1486,17 @@
 
   - group: proposed-commercial-gsf
     fields:
-    - label: How much commercial space will there be?
+    - label: How much commercial space will there be after construction?
       type: number
       unit: gross square feet
-- title: Basements / cellars
+
+- title: "Construction: Basements and cellars"
   fields:
   - label: How many basements or cellars does the property have?
     type: number
     annotation: Everything on this page is from Form 3/8 (DBI)
 
-  - label: Will this change after you build the ADU(s)?
+  - label: Will the number of basements and cellars change after construction?
     type: radio
     options:
     - label: "Yes"
@@ -1481,9 +1506,8 @@
 
   - group: proposed-basements
     fields:
-    - label: How many basements or cellars will there be?
+    - label: How many basements or cellars will there be after construction?
       type: number
-
 
 - title: "Construction: Front facade"
   group: exterior-changes
@@ -1520,56 +1544,6 @@
 
     - label: "No, and I have paid the in-lieu fee"
       shows: street-tree-fee
-
-- title: "Construction: Building height"
-  fields:
-  - label: Are you adding height to the existing building?
-    annotation: Form 3/8 (DBI)
-    type: radio
-    options:
-    - label: "Yes"
-      shows: new-height
-
-    - label: "No"
-
-  - group: new-height
-    fields:
-    - label: What will be the new height at the center line of the front of the building?
-      type: number
-      unit: feet
-      annotation: PRJ (Planning), Form 3/8 (DBI)
-      shows: shadow-analysis
-      if: ">40"
-
-- title: "Construction: Horizontal Extension"
-  fields:
-  - label: Do you plan to add a deck or horizontal extension?
-    annotation: Form 3/8 (DBI)
-    
-    type: radio
-    options:
-    - label: "Yes"
-      shows: new-ground-floor
-
-    - label: "No"
-
-  - group: new-ground-floor
-    fields:
-    - label: What will the new ground floor area be?
-      type: number
-      maxlength: 4
-      unit: square feet
-      annotation: Form 3/8 (DBI)
-
-  - label: Is the site in a Maher area?
-    hidden: yes
-    type: radio
-    annotation: PRJ (Planning)
-    options:
-    - label: "Yes"
-      shows: industrial-to-residential
-
-    - label: "No"
 
 - title: "Construction: Industrial"
   group: industrial-to-residential
@@ -1658,8 +1632,7 @@
       type: number
 
 
-
-- title: "Construction: Seismic work"
+- title: "Construction: Seismic retrofitting"
   fields:
   - label: Have you applied for a seismic retrofitting permit?
     annotation: G-23 Attachment B (DBI)
@@ -1678,6 +1651,8 @@
       maxlength: 15
       annotation: G-23 Attachment B (DBI)
 
+- title: "Construction: Seismic strenghtening"
+  fields:
   - label: Have you filed for a seismic strengthening permit?
     annotation: G-23 Attachment B (DBI)
     helptext: This permit is optional. For more information, see [Administrative Bulletin AB-094](https://sfdbi.org/sites/default/files/migrated/FileCenter/Documents/Administrative_Bulletins/2013_AB/AB_094_updated_010114.pdf).
@@ -1724,6 +1699,7 @@
       type: textarea
       size: large
       annotation: PRJ (Planning), Form 3/8 and Owner / Builder Disclosure (DBI) 
+
 - title: "Construction: Worker's comp"
   fields:
   - label: What best describes the owner's coverage for worker's compensation insurance?
@@ -1755,6 +1731,11 @@
 
 - title: Plan checklist
   fields:
+  - type: paragraph
+    label: |
+      Next, we are going to double-check that your plans have everything we need to approve them.
+
+      Once we have gone through the list, we will ask you to upload your plans and agree to our legal terms.
 
 - title: Site plan
   fields:
@@ -1863,7 +1844,7 @@
   - label: Yes, my plans contain the above.
     type: checkbox
 
-- title: "Checklist: Floor Plans"
+- title: "Checklist: Floor plans"
   fields:
   - type: paragraph
     label: |
@@ -1995,9 +1976,9 @@
   fields:
   - type: paragraph
     label: |
-      On the next page, you will upload your plans and any supplemental documents. They must be in PDF format. 
+      On the next page, you will upload your plans and any supplemental documents. 
 
-      If your plan is over 200 pages or 200MB, you should split up your PDFs into different sections. Otherwise, you should combine your plans into a single file.
+      They must be in PDF format. If your plan is less than 200 pages or 200MB, upload your plans in a single file. If your plan is over 200 pages or 200MB, split your PDFs into different sections.
   
   - label: Format guidelines
     type: header
@@ -2006,7 +1987,11 @@
   - type: paragraph
     label: |
 
-      Your PDFs must be vectorized and unsecured, with searchable text. You should also use bookmarks to distinguish different sections (like architectural, site, and structural.) If there are spaces for e-signatures, you should enable markup.
+      Your PDFs must be vectorized and unsecured with searchable text. 
+
+      Use bookmarks to distinguish different sections (like architectural, site, and structural). 
+
+      If there are spaces for e-signatures, you should enable markup.
 
       Plans should also have:
 
@@ -2065,7 +2050,11 @@
   fields:
   - type: paragraph
     label: |
-      This is not a building permit. Until we issue a permit to you, you cannot start work, change the property's occupancy, or change its use. (See the San Francisco Building Code and San Francisco Housing Code.)
+      Your plans have been submitted.
+
+      This is not a building permit. 
+
+      Until we issue a permit to you, you cannot start work, change the property's occupancy, or change its use. (See the San Francisco Building Code and San Francisco Housing Code.)
 
       Once we issue a building permit, you must post it at the job. The owner will also be responsible for keeping the approved plans and permit application at the property.
 
@@ -2073,10 +2062,9 @@
 
       You will need to follow any stipulations that come up in your application and inspections. You must also follow building code.
 
-  - type: header
-    label: Other permits
-    level: 4
 
+- title: Other permits
+  fields:
   - type: paragraph
     label: |
 
@@ -2092,10 +2080,8 @@
 
       If we approve this application, you will still need to get these other permits approved.
 
-  - type: header
-    label: Removing housing services
-    level: 4
-
+- title: Removing housing services
+  fields:
   - type: paragraph
     label: |
       Pursuant to Rent Ordinance 37.2(r), you acknowledge that removing any of the following from a tenant requires a "just cause":
@@ -2323,6 +2309,50 @@
   - type: checkbox
     label: I understand and agree to everything on this page.
     annotation: Owner / Builder Disclosure (DBI)
+
+- title: Billing contact information
+  fields:
+  - group: owner
+    fields:
+    - label: Who should we contact to pay application fees?
+      type: radio
+      annotation: PRJ (Planning) 
+      options:
+      - label: Myself
+
+      - label: Someone else
+        shows: billing-contact
+
+  - group: non-owner
+    fields:
+    - label: Who should we contact to pay application fees?
+      type: radio
+      annotation: PRJ (Planning) 
+      options:
+      - label: The owner
+
+      - label: The application contact
+
+      - label: Someone else
+        shows: billing-contact
+
+
+- title: Billing contact information
+  group: billing-contact
+  fields:
+  - label: First name of billing contact
+    annotation: PRJ (Planning) 
+
+  - label: Last name of billing contact
+    annotation: PRJ (Planning) 
+
+  - label: Phone number
+    type: phone
+    annotation: PRJ (Planning) 
+
+  - label: Email
+    type: email
+    annotation: PRJ (Planning) 
 
 - title: You are about to submit your application.
   fields:
