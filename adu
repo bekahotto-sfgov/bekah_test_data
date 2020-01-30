@@ -56,7 +56,7 @@
         type: date
         annotation: Form 3/8 and Authorized Agent Disclosure (DBI)
 
-- title: About you: Owner consent
+- title: "About you: Owner consent"
   group: owner
   fields:
   - type: paragraph
@@ -69,7 +69,7 @@
     type: checkbox
     shows: owner-builder
 
-- title: About you: Contact information
+- title: "About you: Contact information"
   fields:
   - label: Name of your organization
     optional: yes
@@ -89,7 +89,7 @@
     type: email
     annotation: PRJ and Joint Checklist (Planning), G-23 Attachment B, Form 3/8 and Authorized Agent Disclosure (DBI)
 
-- title: The property: Owner
+- title: "The property: Owner"
   group: non-owner
   fields:
   - label: Who owns the property?
@@ -101,7 +101,7 @@
     - label: "An organization"
       shows: owner-org
 
-- title: About the owner
+- title: "The property: Owner's information"
   group: non-owner
   fields:
   - group: owner-org
@@ -127,7 +127,7 @@
     type: email
     annotation: PRJ (Planning), Form 3/8 and Authorized Agent Disclosure (DBI) 
  
-- title: The property: Owner’s address
+- title: "The property: Owner’s address"
   fields:
   - label: Owner's mailing address
     type: address
@@ -200,7 +200,7 @@
     annotation: PRJ (Planning) 
 
 
-- title: The property: Use codes
+- title: "The property: Use codes"
   fields:
   - label: What are the building's current use codes?
     annotation: Form 3/8 (DBI)
@@ -245,7 +245,7 @@
     fields:
     - label: Enter any proposed building use codes that are not listed above. 
 
-- title: The property: Occupancy codes
+- title: "The property: Occupancy codes"
   fields:
   - label: What are the property's current occupancy codes?
     type: checkbox
@@ -350,7 +350,7 @@
           - label: "**U**: Utility / Miscellaneous"
           annotation: DBI and Planning
 
-- title: The property: Environmental assessment
+- title: "The property: Environmental assessment"
   fields:
 
   - label: |
@@ -380,7 +380,7 @@
 
     - label: "No"
 
-- title: The property: Child care facility
+- title: "The property: Child care facility"
   fields:
   - label: Does the project have a child care facility or school?
     type: radio
@@ -401,7 +401,7 @@
 
       - label: "No"
 
-- title: The property: Front setback
+- title: "The property: Front setback"
   fields:
   - label: Does the property have a front setback?
     type: radio
@@ -421,7 +421,7 @@
 
     - label: "No"
 
-- title: The property: Fire sprinklers
+- title: "The property: Fire sprinklers"
   fields:
   - label: Does the property have fire sprinklers?
     type: radio
@@ -438,7 +438,7 @@
       type: textarea
       annotation: Multi-Family Joint Checklist (Planning)
 
-- title: The property: Fire alarms
+- title: "The property: Fire alarms"
   fields:
   - label: Does the property have fire alarms?
     type: radio
@@ -455,215 +455,7 @@
       annotation: Multi-Family Joint Checklist (Planning)
       type: textarea
 
-- title: Construction: Type of construction
-  fields:
-  - label: Type of construction
-    type: select
-    annotation: Form 3/8 (DBI), Joint Checklist (Planning)
-    options:
-    - label: "I-A: Fire Resistive Non-Combustible"
-    - label: "I-B: Fire Resistive Non-Combustible"
-    - label: "II-A: Protected Non-Combustible"
-    - label: "II-B: Unprotected Non-Combustible"
-    - label: "III-A: Protected Combustible"
-    - label: "III-B: Unprotected Combustible"
-    - label: "IV: Heavy Timber"
-    - label: "V-A: Protected Wood Frame"
-    - label: "V-B: Unprotected Wood Frame"
-
-- title: Construction: Project Esimates
-  fields:
-  - label: Estimated cost
-    type: price
-    annotation: PRJ (Planning), Form 3/8 (DBI)
-
-  - label: Estimated length of construction
-    type: number
-    maxlength: 2
-    unit: months
-    annotation: PRJ (Planning)
-
-- title: Construction: Project Esimates
-  fields:
-  - label: Excavation area
-    type: number
-    unit: square feet
-    maxlength: 4
-    annotation: PRJ (Planning)
-    shows: geotechnical
-    if: ">999"
-
-  - label: Excavation volume
-    type: number
-    unit: cubic yards
-    maxlength: 5
-    annotation: PRJ and Joint Checklist (Planning)
-    shows: large-excavation
-    if: ">49"
-
-  - label: Slope of building
-    hidden: yes
-    type: number
-    maxlength: 2
-    unit: "%"
-    annotation: PRJ (Planning)
-    shows: large-excavation
-    if: ">20"
-
-  - label: Including foundation work, how deep will you disturb the surface below grade?
-    type: number
-    annotation: PRJ and Joint Checklist (Planning)
-    maxlength: 3
-    unit: feet
-
-- title: Construction impact
-  fields:
-  - label: Will the work involve any of the following?
-    type: checkbox
-    options:
-    - label: Repairing or replacing the building's foundation
-      annotation: PRJ (Planning)
-
-    - label: Building a driveway or auto runway
-      annotation: Form 3/8 (DBI)
-      shows: auto-runway
-
-    - label: Using street space
-      annotation: Form 3/8 (DBI)
-      shows: street-space
-
-    - label: Changing the building's exterior
-      shows: exterior-changes
-
-    - label: Changing the floor-to-ceiling height
-      shows: floor-to-ceiling-height-change
-
-    - label: Repairing or changing the sidewalk above a basement
-
-    - label: Extending the building beyond the property line
-      annotation: Form 3/8 (DBI)
-      shows: building-extension
-
-    - label: Plumbing work
-      annotation: Form 3/8 (DBI)
-      shows: plumbing
-
-    - label: Electrical work
-      annotation: Form 3/8 (DBI)
-      shows: electrical
-
-- title: Construction impact
-  group: exterior-changes
-  fields:
-  - label: Are you changing the front facade?
-    type: radio
-    annotation: Needed for plan checklist
-    options:
-    - label: "Yes"
-      shows: exterior-changes-public
-
-    - label: "No"
-
-  - group: exterior-changes-public
-    fields:
-    - label: Are you expanding the building?
-      type: radio
-      annotation: Needed for plan checklist
-      options:
-      - label: "Yes"
-        shows: exterior-changes-expansion
-
-      - label: "No"
-        shows: exterior-changes-no-expansion
-
-- title: Construction impact
-  fields:
-  - label: Are you planning to plant street trees?
-    type: radio
-    annotation: Needed for plan checklist
-    options:
-    - label: "Yes"
-      shows: street-tree-no-fee
-
-    - label: "No, and I have paid the in-lieu fee"
-      shows: street-tree-fee
-
-- title: Construction impact
-  fields:
-  - label: Are you adding height to the existing building?
-    annotation: Form 3/8 (DBI)
-    type: radio
-    options:
-    - label: "Yes"
-      shows: new-height
-
-    - label: "No"
-
-  - group: new-height
-    fields:
-    - label: What will be the new height at the center line of the front of the building?
-      type: number
-      unit: feet
-      annotation: PRJ (Planning), Form 3/8 (DBI)
-      shows: shadow-analysis
-      if: ">40"
-
-- title: Construction impact
-  fields:
-  - label: Do you plan to add a deck or horizontal extension?
-    annotation: Form 3/8 (DBI)
-    
-    type: radio
-    options:
-    - label: "Yes"
-      shows: new-ground-floor
-
-    - label: "No"
-
-  - group: new-ground-floor
-    fields:
-    - label: What will the new ground floor area be?
-      type: number
-      maxlength: 4
-      unit: square feet
-      annotation: Form 3/8 (DBI)
-
-  - label: Is the site in a Maher area?
-    hidden: yes
-    type: radio
-    annotation: PRJ (Planning)
-    options:
-    - label: "Yes"
-      shows: industrial-to-residential
-
-    - label: "No"
-
-- title: Construction: ?
-  group: industrial-to-residential
-  fields:
-  - group: large-excavation
-    fields:
-    - label: Are you changing the property from industrial to residential use?
-      type: radio
-      annotation: PRJ (Planning)
-      options:
-      - label: "Yes"
-        shows: maher
-
-      - label: "No"
-
-- title: Housing services
-  fields:
-  - label: Will this ADU remove garages, parking facilities, driveways, storage spaces, laundry rooms, decks, patios, or gardens?
-    type: radio
-    annotation: G-23 Attachment B (DBI)
-    options:
-    - label: "Yes"
-      shows: housing-services
-
-    - label: "No"
-
-- title: Current ADUs
+- title: "The property: Current ADUs"
   fields:
   - label: How many legal ADUs does the property currently have?
     type: number
@@ -1066,7 +858,7 @@
       - label: "162-16"
       - label: "162-17"
 
-- title: Proposed ADUs
+- title: "Construction: Proposed ADUs"
   fields:
   - label: How many ADUs are you proposing for this project?
     type: number
@@ -1468,55 +1260,147 @@
       - label: "162-16"
       - label: "162-17"
 
-- title: Parking
+- title: "Construction: Type of construction"
   fields:
-  - label: Square feet of parking
-    type: header
-    level: 3
+  - label: Type of construction
+    type: select
+    annotation: Form 3/8 (DBI), Joint Checklist (Planning)
+    options:
+    - label: "I-A: Fire Resistive Non-Combustible"
+    - label: "I-B: Fire Resistive Non-Combustible"
+    - label: "II-A: Protected Non-Combustible"
+    - label: "II-B: Unprotected Non-Combustible"
+    - label: "III-A: Protected Combustible"
+    - label: "III-B: Unprotected Combustible"
+    - label: "IV: Heavy Timber"
+    - label: "V-A: Protected Wood Frame"
+    - label: "V-B: Unprotected Wood Frame"
 
-  - label: How many square feet of parking area does the property have?
+- title: "Construction: Project Esimates"
+  fields:
+  - label: Estimated cost
+    type: price
+    annotation: PRJ (Planning), Form 3/8 (DBI)
+
+  - label: Estimated length of construction
     type: number
-    unit: gross square feet
+    maxlength: 2
+    unit: months
+    annotation: PRJ (Planning)
+
+- title: "Construction: Excavation"
+  fields:
+  - label: Excavation area
+    type: number
+    unit: square feet
+    maxlength: 4
+    annotation: PRJ (Planning)
+    shows: geotechnical
+    if: ">999"
+
+  - label: Excavation volume
+    type: number
+    unit: cubic yards
+    maxlength: 5
+    annotation: PRJ and Joint Checklist (Planning)
+    shows: large-excavation
+    if: ">49"
+
+  - label: Slope of building
+    hidden: yes
+    type: number
+    maxlength: 2
+    unit: "%"
+    annotation: PRJ (Planning)
+    shows: large-excavation
+    if: ">20"
+
+  - label: Including foundation work, how deep will you disturb the surface below grade?
+    type: number
+    annotation: PRJ and Joint Checklist (Planning)
+    maxlength: 3
+    unit: feet
+
+- title: "Construction: Impact"
+  fields:
+  - label: Will the work involve any of the following?
+    type: checkbox
+    options:
+    - label: Repairing or replacing the building's foundation
+      annotation: PRJ (Planning)
+
+    - label: Building a driveway or auto runway
+      annotation: Form 3/8 (DBI)
+      shows: auto-runway
+
+    - label: Using street space
+      annotation: Form 3/8 (DBI)
+      shows: street-space
+
+    - label: Changing the building's exterior
+      shows: exterior-changes
+
+    - label: Changing the floor-to-ceiling height
+      shows: floor-to-ceiling-height-change
+
+    - label: Repairing or changing the sidewalk above a basement
+
+    - label: Extending the building beyond the property line
+      annotation: Form 3/8 (DBI)
+      shows: building-extension
+
+    - label: Plumbing work
+      annotation: Form 3/8 (DBI)
+      shows: plumbing
+
+    - label: Electrical work
+      annotation: Form 3/8 (DBI)
+      shows: electrical
+
+- title: "Construction: Buildings"
+  fields:
+  - label: How many buildings does the property have?
+    type: number
     annotation: Everything on this page is from the PRJ (Planning)
 
   - label: Will this change after you build the ADU(s)?
     type: radio
     options:
     - label: "Yes"
-      shows: proposed-parking-gsf
+      shows: proposed-buildings
 
     - label: "No"
 
-  - group: proposed-parking-gsf
+  - group: proposed-buildings
     fields:
-    - label: How many square feet of parking area will there be?
+    - label: How many buildings will there be?
       type: number
-      unit: gross square feet
 
-  - label: Parking spaces
-    type: header
-    level: 3
-
-  - label: How many parking spaces does the property have?
+- title: "Construction: Building stories"
+  fields:
+  - label: How many stories does the property have?
     type: number
-    annotation: Everything on this page is from the PRJ (Planning)
+    maxlength: 15 
+    annotation: Form 3/8 (DBI), PRJ and Joint Checklist (Planning)
 
   - label: Will this change after you build the ADU(s)?
     type: radio
+    annotation: If "no", populate "proposed stories" with the answer to "existing stories"
     options:
     - label: "Yes"
-      shows: proposed-parking-spaces
+      shows: proposed-stories
 
     - label: "No"
 
-  - group: proposed-parking-spaces
+  - group: proposed-stories
     fields:
-    - label: How many parking spaces will there be?
+    - label: How many stories will there be?
       type: number
-      show: no-parking-spaces
-      if: "0"
+      maxlength: 15 
+      annotation: PRJ (Planning)
 
-- title: Residential area
+
+- title: "Construction: Residential area"
   fields:
   - label: How many square feet of residential space does the property have?
     type: number
@@ -1561,7 +1445,7 @@
     unit: units
     annotation: PRJ (Planning)
 
-- title: Commercial area
+- title: "Construction: Commercial area"
   fields:
   - label: How many square feet of commercial space does the property have?
     type: number
@@ -1581,49 +1465,6 @@
     - label: How much commercial space will there be?
       type: number
       unit: gross square feet
-
-- title: Buildings
-  fields:
-  - label: How many buildings does the property have?
-    type: number
-    annotation: Everything on this page is from the PRJ (Planning)
-
-  - label: Will this change after you build the ADU(s)?
-    type: radio
-    options:
-    - label: "Yes"
-      shows: proposed-buildings
-
-    - label: "No"
-
-  - group: proposed-buildings
-    fields:
-    - label: How many buildings will there be?
-      type: number
-
-- title: Building stories
-  fields:
-  - label: How many stories does the property have?
-    type: number
-    maxlength: 15 
-    annotation: Form 3/8 (DBI), PRJ and Joint Checklist (Planning)
-
-  - label: Will this change after you build the ADU(s)?
-    type: radio
-    annotation: If "no", populate "proposed stories" with the answer to "existing stories"
-    options:
-    - label: "Yes"
-      shows: proposed-stories
-
-    - label: "No"
-
-  - group: proposed-stories
-    fields:
-    - label: How many stories will there be?
-      type: number
-      maxlength: 15 
-      annotation: PRJ (Planning)
-
 - title: Basements / cellars
   fields:
   - label: How many basements or cellars does the property have?
@@ -1643,7 +1484,161 @@
     - label: How many basements or cellars will there be?
       type: number
 
-- title: Bicycle spaces
+
+- title: "Construction: Front facade"
+  group: exterior-changes
+  fields:
+  - label: Are you changing the front facade?
+    type: radio
+    annotation: Needed for plan checklist
+    options:
+    - label: "Yes"
+      shows: exterior-changes-public
+
+    - label: "No"
+
+  - group: exterior-changes-public
+    fields:
+    - label: Are you expanding the building?
+      type: radio
+      annotation: Needed for plan checklist
+      options:
+      - label: "Yes"
+        shows: exterior-changes-expansion
+
+      - label: "No"
+        shows: exterior-changes-no-expansion
+
+- title: "Construction: Street trees"
+  fields:
+  - label: Are you planning to plant street trees?
+    type: radio
+    annotation: Needed for plan checklist
+    options:
+    - label: "Yes"
+      shows: street-tree-no-fee
+
+    - label: "No, and I have paid the in-lieu fee"
+      shows: street-tree-fee
+
+- title: "Construction: Building height"
+  fields:
+  - label: Are you adding height to the existing building?
+    annotation: Form 3/8 (DBI)
+    type: radio
+    options:
+    - label: "Yes"
+      shows: new-height
+
+    - label: "No"
+
+  - group: new-height
+    fields:
+    - label: What will be the new height at the center line of the front of the building?
+      type: number
+      unit: feet
+      annotation: PRJ (Planning), Form 3/8 (DBI)
+      shows: shadow-analysis
+      if: ">40"
+
+- title: "Construction: Horizontal Extension"
+  fields:
+  - label: Do you plan to add a deck or horizontal extension?
+    annotation: Form 3/8 (DBI)
+    
+    type: radio
+    options:
+    - label: "Yes"
+      shows: new-ground-floor
+
+    - label: "No"
+
+  - group: new-ground-floor
+    fields:
+    - label: What will the new ground floor area be?
+      type: number
+      maxlength: 4
+      unit: square feet
+      annotation: Form 3/8 (DBI)
+
+  - label: Is the site in a Maher area?
+    hidden: yes
+    type: radio
+    annotation: PRJ (Planning)
+    options:
+    - label: "Yes"
+      shows: industrial-to-residential
+
+    - label: "No"
+
+- title: "Construction: Industrial"
+  group: industrial-to-residential
+  fields:
+  - group: large-excavation
+    fields:
+    - label: Are you changing the property from industrial to residential use?
+      type: radio
+      annotation: PRJ (Planning)
+      options:
+      - label: "Yes"
+        shows: maher
+
+      - label: "No"
+
+- title: "Construction: Housing services"
+  fields:
+  - label: Will this ADU remove garages, parking facilities, driveways, storage spaces, laundry rooms, decks, patios, or gardens?
+    type: radio
+    annotation: G-23 Attachment B (DBI)
+    options:
+    - label: "Yes"
+      shows: housing-services
+
+    - label: "No"
+
+- title: "Construction: Parking area"
+  fields:
+  - label: How many square feet of parking area does the property have?
+    type: number
+    unit: gross square feet
+    annotation: Everything on this page is from the PRJ (Planning)
+
+  - label: Will this change after you build the ADU(s)?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-parking-gsf
+
+    - label: "No"
+
+  - group: proposed-parking-gsf
+    fields:
+    - label: How many square feet of parking area will there be?
+      type: number
+      unit: gross square feet
+
+- title: "Construction: Parking spaces"
+  fields:
+  - label: How many parking spaces does the property have?
+    type: number
+    annotation: Everything on this page is from the PRJ (Planning)
+
+  - label: Will this change after you build the ADU(s)?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-parking-spaces
+
+    - label: "No"
+
+  - group: proposed-parking-spaces
+    fields:
+    - label: How many parking spaces will there be?
+      type: number
+      show: no-parking-spaces
+      if: "0"
+
+- title: "Construction: Bicycle spaces"
   fields:
   - label: How many bicycle spaces does the property have?
     type: number
@@ -1662,36 +1657,9 @@
     - label: How many bicycle spaces will there be?
       type: number
 
-- title: Worker's compensation insurance
-  fields:
-  - label: What best describes the owner's coverage for worker's compensation insurance?
-    annotation: This is a duplicate, plain-language version of the 'Hold Harmless Clause' in Form 3/8, so it doesn't need to be recorded.
-    type: radio
-    options:
-    - label: "They are self-insured and have a certificate of consent."
-      shows: comp-I
 
-    - label: "They have personally bought insurance for this project."
-      shows: comp-II
 
-    - label: "They plan to hire a contractor who will follow worker's compensation laws."
-      shows: comp-V
-
-    - label: "They don't need insurance because they aren't hiring anyone."
-      shows: comp-IV
-
-    - label: "They don't need insurance because the work will cost under $100."
-      shows: comp-III
-
-  - group: comp-II
-    fields:
-    - label: Name of insurance carrier
-
-    - label: Policy number
-      type: number
-      maxlength: 15
-
-- title: Seismic work
+- title: "Construction: Seismic work"
   fields:
   - label: Have you applied for a seismic retrofitting permit?
     annotation: G-23 Attachment B (DBI)
@@ -1740,7 +1708,7 @@
 
     - label: "No"
 
-- title: Additional work
+- title: "Construction: Additional work"
   fields:
   - label: Are you planning any work for this project in addition to ADUs?
     type: radio
@@ -1756,6 +1724,34 @@
       type: textarea
       size: large
       annotation: PRJ (Planning), Form 3/8 and Owner / Builder Disclosure (DBI) 
+- title: "Construction: Worker's comp"
+  fields:
+  - label: What best describes the owner's coverage for worker's compensation insurance?
+    annotation: This is a duplicate, plain-language version of the 'Hold Harmless Clause' in Form 3/8, so it doesn't need to be recorded.
+    type: radio
+    options:
+    - label: "They are self-insured and have a certificate of consent."
+      shows: comp-I
+
+    - label: "They have personally bought insurance for this project."
+      shows: comp-II
+
+    - label: "They plan to hire a contractor who will follow worker's compensation laws."
+      shows: comp-V
+
+    - label: "They don't need insurance because they aren't hiring anyone."
+      shows: comp-IV
+
+    - label: "They don't need insurance because the work will cost under $100."
+      shows: comp-III
+
+  - group: comp-II
+    fields:
+    - label: Name of insurance carrier
+
+    - label: Policy number
+      type: number
+      maxlength: 15
 
 - title: Plan checklist
   fields:
@@ -1779,7 +1775,7 @@
   - label: Yes, my plans contain all the above.
     type: checkbox
 
-- title: Site plan
+- title: "Checklist: Site plan"
   fields:
   - type: paragraph
     label: |
@@ -1796,7 +1792,7 @@
   - label: Yes, my plans contain all the above.
     type: checkbox
 
-- title: Site plan
+- title: "Checklist: Site plan"
   fields:
   - type: paragraph
     label: |
@@ -1867,7 +1863,7 @@
   - label: Yes, my plans contain the above.
     type: checkbox
 
-- title: Floor plans
+- title: "Checklist: Floor Plans"
   fields:
   - type: paragraph
     label: |
@@ -1890,7 +1886,7 @@
   - label: Yes, my plans contain all the above.
     type: checkbox
 
-- title: Floor plans
+- title: "Checklist: Floor plans"
   fields:
   - type: paragraph
     label: |
@@ -1903,7 +1899,7 @@
   - label: Yes, my plans contain all the above.
     type: checkbox
 
-- title: Floor plans
+- title: "Checklist: Floor plans"
   fields:
   - type: radio
     label: |
@@ -1938,7 +1934,7 @@
   - label: Yes, my plans contain the above.
     type: checkbox
 
-- title: Elevations
+- title: "Checklist: Elevations"
   fields:
   - type: paragraph
     label: |
@@ -1978,7 +1974,7 @@
   - label: Yes, my elevations contain all the above.
     type: checkbox
 
-- title: Section plans
+- title: "Checklist: Section plans"
   fields:
   - type: paragraph
     label: |
