@@ -56,7 +56,7 @@
         type: date
         annotation: Form 3/8 and Authorized Agent Disclosure (DBI)
 
-- title: "About you: Owner consent"
+- title: Owner consent
   group: owner
   fields:
   - type: paragraph
@@ -69,8 +69,12 @@
     type: checkbox
     shows: owner-builder
 
-- title: "About you: Contact information"
+- title: About you
   fields:
+  - label: Contact information
+      type: header
+      level: 2
+     
   - label: Name of your organization
     optional: yes
     annotation: Authorized Agent Disclosure (DBI) 
@@ -89,9 +93,13 @@
     type: email
     annotation: PRJ and Joint Checklist (Planning), G-23 Attachment B, Form 3/8 and Authorized Agent Disclosure (DBI)
 
-- title: "The property: Owner"
+- title: Property
   group: non-owner
   fields:
+   - label: Owner information
+      type: header
+      level: 2
+
   - label: Who owns the property?
     type: radio
     options:
